@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @SqlGroup({
-    @Sql(scripts = {"classpath:schemaTest.sql", "classpath:dataTest.sql"})
+    @Sql(scripts = {"classpath:schemaTest.sql", "classpath:dataTest.sql"} ,executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     ,
     @Sql(scripts = {"classpath:dropTest.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 })
