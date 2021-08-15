@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="head :: head">
+    </head>
+
+    <body>
+        <!-- NavBar start -->
+        <nav th:replace="Navbar :: nav"></nav>
+        <!-- NavBar End -->
+
+        <!-- Page Header -->
+        <header th:replace="header :: header"></header>
+        <!-- Page Header End-->
+
+        <!-- Main -->
+        <main id="main" class="mb-5">
+
+            <div class="container-md">
+                <div class="row">
+
+                    <!-- List group Col -->
+                    <div th:replace="SideNav:: SideNav"></div>
+                    <!-- List group Col End-->
+
+
+                    <div class="col-lg-9">
+
+                        <div class="card shadow">
+                            <div class="card-header h2 bg-dark">
+                                Buyer Information
+                            </div>
+
+                            <div class="card-body">
+
+                                <form th:object="${ViewBuyer}">
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Id:</label>
+                                        <span th:text="*{id}"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Username" class="form-label">Username:</label>
+                                        <span th:text="*{name}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email address:</label>
+                                        <span th:text="*{email}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="dob" class="form-label">Date of birth:</label>
+                                        <span th:text="*{dob}"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dob" class="form-label">Age:</label>
+                                        <span th:text="*{age}"></span>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
+
+
+                            <!-- User Form  End-->
+
+                        </div>
+
+                    </div>
+
+
+                    <!--  Buyer Purchase Table -->
+                    <div class="card shadow mt-5 p-0">
+                        <div class="card-header h2 bg-dark">
+                            User Purchases
+                        </div>
+
+                        <div class="card-body">
+                            <table th:replace="tables :: PurchaseTable"></table>
+                        </div>
+
+                    </div>
+                    <!--  Buyer Purchase Table End-->
+
+
+                </div>
+
+
+            </div>
+            </div>
+        </main>
+
+        <!-- Main End-->
+
+        <!-- Modal add user -->
+        <div th:replace="Modal :: UserModal"></div>
+        <!-- Modal add user End-->
+
+        <!-- Modal add shoes -->
+        <div th:replace="Modal:: ShoesModal"></div>
+        <!-- Modal add shoes End-->
+
+
+
+        <div th:replace="scriptTags::script"></div>
+
+    </body>
+
+
+</html>

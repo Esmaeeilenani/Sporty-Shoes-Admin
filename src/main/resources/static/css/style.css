@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+/*****Navbar*****/
+.navbar-nav,
+.navbar-toggler {
+  align-items: center !important;
+}
+
+#navbar {
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+/* breadcrumb*/
+.breadcrumb {
+  background-color: #cccccc;
+  color: set-text-color(CurrentColor);
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+}
+
+.list-group-item-action.active {
+  background-color: #212529 !important;
+  border-color: #212529 !important;
+  color: #ffff !important;
+}
+
+.badge {
+  margin-right: 1rem !important;
+  position: absolute;
+  right: 0;
+}
+
+h2 {
+  text-align: center;
+}
+h2 .badge {
+  margin: 0 !important;
+  position: static;
+}
+
+.bg-dark {
+  color: #ffff !important;
+}
+
+/*# sourceMappingURL=style.css.map */

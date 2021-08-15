@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="head :: head">
+    </head>
+
+    <body>
+        <!-- NavBar start -->
+        <nav th:replace="Navbar :: nav"></nav>
+        <!-- NavBar End -->
+
+        <!-- Page Header -->
+        <header th:replace="header :: header"></header>
+        <!-- Page Header End-->
+
+        <!-- Main -->
+        <main id="main" class="mb-5">
+
+            <div class="container-md">
+                <div class="row">
+
+                    <!-- List group Col -->
+                    <div th:replace="SideNav:: SideNav"></div>
+                    <!-- List group Col End-->
+
+
+                    <div class="col-lg-9">
+                        <div th:class="'alert alert-danger  alert-dismissible fade '+${errormsg == null ?    'd-none' : 'show'}"
+                            id="alert" role="alert">
+                            <strong>Error</strong> <span th:text="${errormsg}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <!-- Main Latest Product card Table -->
+                        <div class="card shadow">
+                            <div class="card-header h2 bg-dark">
+                                Edit Product
+                            </div>
+
+                            <div class="card-body">
+                                <form action="/Products/save" method="POST" id="ShoesForm" th:object="${EditShoes}"
+                                    class="needs-validation" novalidate>
+
+                                    <input type="text" th:field="*{id}" class="d-none">
+                                    <div class="mb-3">
+                                        <label for="ProductName" class="form-label">Product Name</label>
+                                        <input type="text" th:field="*{name}" class="form-control" id="ProductName"
+                                            name="ProductName" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <input type="text" th:field="*{description}" class="form-control"
+                                            id="description" name="description" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label">Category</label>
+                                        <input type="text" th:field="*{category}" class="form-control" id="category"
+                                            name="category" required>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="inStock" class="form-label">in Stock</label>
+                                        <input type="number" th:field="*{inStock}" class="form-control" id="price"
+                                            name="price" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="price" class="form-label">Price</label>
+                                        <input type="number" th:field="*{price}" class="form-control" id="inStock"
+                                            name="inStock" required>
+
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary" id="submitShoes">Submit</button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+                        <!-- Main Latest Product card Table End-->
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Main End-->
+
+        <!-- Modal add user -->
+        <div th:replace="Modal :: UserModal"></div>
+        <!-- Modal add user End-->
+
+        <div th:replace="scriptTags::script"></div>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Purchase Table -->
+    <table th:fragment="PurchaseTable" class="table table-striped table-hover text-center">
+        <thead>
+            <tr>
+                <th>Purchase #</th>
+                <th>Total Price</th>
+                <th>Date</th>
+                <th>Number of Product</th>
+                <th>Buyer</th>
+                <th>View Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" Purchase: ${purchases}">
+                <td th:text="${Purchase.id}"></td>
+                <td th:text="${Purchase.total}"></td>
+                <td th:text="${Purchase.purchaseDate}"></td>
+                <td th:text="${Purchase.getNumOfItems()}"></td>
+                <td th:text="${Purchase.getBuyerName()}"></td>
+                <td> <a th:href="@{/Purchases/view(id=${Purchase.id})}" class="btn btn-secondary">view</a> </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!-- Purchase Table End-->
+
+    <!-- Product Table -->
+    <table th:fragment="ProductTable" class="table table-striped table-hover text-center">
+        <thead>
+            <tr>
+                <th>Product#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>In Stock</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" product: ${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.category}"></td>
+                <td th:text="${product.inStock}"></td>
+                <td th:text="${product.price}"></td>
+                <td>
+                    <a th:href="@{/Products/edit(id = ${product.id})}" class="btn btn-secondary">Edit</a>
+                    <a th:href="@{/Products/delete(id = ${product.id})}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!-- Product Table End-->
+
+    <!-- Buyer Table -->
+    <table th:fragment="UsersTable" class="table table-striped table-hover text-center">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th> Name</th>
+                <th> Email</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Number of Purchases</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" buyer: ${buyers}">
+                <td th:text="${buyer.id}"></td>
+                <td th:text="${buyer.name}"></td>
+                <td th:text="${buyer.email}"></td>
+                <td th:text="${buyer.dob}"></td>
+                <td th:text="${buyer.getAge()}"></td>
+                <td th:text="${buyer.getNumOfPurchaes()}"></td>
+                <td>
+                    <a th:href="@{/Users/view(id=${buyer.id})}" class="btn btn-secondary">View</a>
+                    <a th:href="@{/Users/delete(id=${buyer.id})}" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!-- Buyer Table End-->
+
+
+
+
+
+    <!-- Products in Purchase Table -->
+    <table th:fragment="PurchaseProductTable" class="table table-striped table-hover text-center">
+        <thead>
+            <tr>
+                <th>Product#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" PurchaseProduct: ${purchaseProducts}">
+                <td th:text="${PurchaseProduct.product.id}"></td>
+                <td th:text="${PurchaseProduct.product.name}"></td>
+                <td th:text="${PurchaseProduct.product.description}"></td>
+                <td th:text="${PurchaseProduct.product.category}"></td>
+                <td th:text="${PurchaseProduct.quantity}"></td>
+                <td th:text="${PurchaseProduct.subTotal}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Products in Purchase Table End-->
+
+
+</html>

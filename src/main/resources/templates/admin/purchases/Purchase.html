@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="head :: head">
+    </head>
+
+    <body>
+        <!-- NavBar start -->
+        <nav th:replace="Navbar :: nav"></nav>
+        <!-- NavBar End -->
+
+        <!-- Page Header -->
+        <header th:replace="header :: header"></header>
+        <!-- Page Header End-->
+
+        <!-- Main -->
+        <main id="main" class="mb-5">
+
+            <div class="container-md">
+                <div class="row">
+
+                    <!-- List group Col -->
+                    <div th:replace="SideNav:: SideNav"></div>
+                    <!-- List group Col End-->
+
+
+                    <div class="col-lg-9">
+
+                        <div class="card shadow">
+                            <div class="card-header h2 bg-dark">
+                                Purchase Information
+                            </div>
+
+                            <div class="card-body">
+
+                                <form th:object="${Purchase}">
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Id:</label>
+                                        <span th:text="*{id}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="total" class="form-label">Total Price:</label>
+                                        <span th:text="*{total}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="purchaseDate" class="form-label">Date:</label>
+                                        <span th:text="*{purchaseDate}"></span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="dob" class="form-label">Number of Product:</label>
+                                        <span th:text="*{getNumOfItems()}"></span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dob" class="form-label">Buyer:</label>
+                                        <span th:text="*{getBuyerName()}"></span>
+                                    </div>
+                                </form>
+
+                            </div>
+
+
+
+
+                            <!-- User Form  End-->
+
+                        </div>
+
+                    </div>
+
+
+                    <!--  Products in Purchase Table -->
+                    <div class="card shadow mt-5 p-0">
+                        <div class="card-header h2 bg-dark">
+                            Products of Purchase
+                        </div>
+
+                        <div class="card-body">
+                            <table th:replace="tables :: PurchaseProductTable"></table>
+                        </div>
+
+                    </div>
+                    <!--  Products in Purchase Table End-->
+
+
+                </div>
+
+
+            </div>
+            </div>
+        </main>
+
+        <!-- Main End-->
+
+        <!-- Modal add user -->
+        <div th:replace="Modal :: UserModal"></div>
+        <!-- Modal add user End-->
+
+        <!-- Modal add shoes -->
+        <div th:replace="Modal:: ShoesModal"></div>
+        <!-- Modal add shoes End-->
+
+
+
+        <div th:replace="scriptTags::script"></div>
+
+    </body>
+
+
+</html>

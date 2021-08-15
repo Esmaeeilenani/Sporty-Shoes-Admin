@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="head :: head">
+    </head>
+
+    <body>
+
+        <!-- NavBar start -->
+        <nav th:replace="Navbar :: nav"></nav>
+        <!-- NavBar End -->
+
+
+
+        <!-- Main -->
+        <main id="main" class="mt-5">
+            <div class="container-md">
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-6">
+                        <!-- Main Card OverView-->
+                        <div class="card shadow">
+                            <div class="card-header h2 bg-dark">
+                                Login
+                            </div>
+                            <div th:class="'alert alert-danger  alert-dismissible fade mt-2 '+${errormsg == null ?    'd-none' : 'show'}"
+                                id="alert" role="alert">
+                                <strong>Error</strong> <span th:text="${errormsg}"></span>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+
+                            <div class="card-body justify-content-center">
+
+                                <form action="/LoginProcess" method="POST">
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" id="email" name="email">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Pass" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="Pass" name="Pass">
+
+                                    </div>
+
+
+                                    <button type="submit" class="btn btn-primary" id="submitUser">Submit</button>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <!-- Main Card OverView End-->
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Main End-->
+
+
+        <script src="/js/bootstrap.bundle.js" defer></script>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="head :: head">
+    </head>
+
+    <body>
+        <!-- NavBar start -->
+        <nav th:replace="Navbar :: nav"></nav>
+        <!-- NavBar End -->
+
+        <!-- Page Header -->
+        <header th:replace="header :: header"></header>
+        <!-- Page Header End-->
+
+        <!-- Main -->
+        <main id="main" class="mb-5">
+
+            <div class="container-md">
+                <div class="row">
+
+                    <!-- List group Col -->
+                    <div th:replace="SideNav:: SideNav"></div>
+                    <!-- List group Col End-->
+
+
+                    <div class="col-lg-9">
+                        <div th:class="'alert alert-danger  alert-dismissible fade '+${errormsg == null ?    'd-none' : 'show'}"
+                            id="alert" role="alert">
+                            <strong>Error</strong> <span th:text="${errormsg}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <!-- Main Latest Purchases card Table -->
+                        <div class="card shadow">
+                            <div class="card-header h2 bg-dark">
+                                All Purchases
+                            </div>
+
+                            <div class="card-body">
+                                <table th:replace="tables :: PurchaseTable"></table>
+                            </div>
+
+                        </div>
+                        <!-- Main Latest Purchases card Table End-->
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+
+        <!-- Main End-->
+
+        <!-- Modal add user -->
+        <div th:replace="Modal :: UserModal"></div>
+        <!-- Modal add user End-->
+
+        <!-- Modal add shoes -->
+        <div th:replace="Modal:: ShoesModal"></div>
+        <!-- Modal add shoes End-->
+
+
+
+        <div th:replace="scriptTags::script"></div>
+
+    </body>
+
+
+</html>

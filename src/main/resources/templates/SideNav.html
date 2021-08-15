@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div th:fragment="SideNav" class="col-lg-3 mb-5 mb-xl-0">
+        <div class="list-group bg-dark shadow">
+            <a href="/" class="list-group-item list-group-item-action py-2">
+                <i class="bi bi-gear-fill me-1"></i> Dashboard
+            </a>
+            <a href="/Users" class="list-group-item list-group-item-action py-2">
+                <i class="bi bi-person-fill me-1"></i>
+                Users
+                <span class="badge bg-secondary" th:text="${UserCount}">0</span>
+            </a>
+
+            <a href="/Products" class="list-group-item list-group-item-action py-2">
+                <i class="bi bi-handbag-fill me-1"></i>
+                Brands
+                <span class="badge bg-secondary" th:text="${ShoesCount}">0</span>
+            </a>
+
+            <a href="/Purchases" class="list-group-item list-group-item-action py-2">
+                <i class="bi bi-cash-stack me-1"></i>
+                Purchases
+                <span class="badge bg-secondary" th:text="${PurchaseCount}">0</span>
+
+
+            </a>
+
+        </div>
+    </div>
+
+</html>

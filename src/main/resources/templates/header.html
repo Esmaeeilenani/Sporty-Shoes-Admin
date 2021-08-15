@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+
+
+    <header th:fragment="header" class="py-1 my-2" id="header">
+        <div class="container-lg text-center text-md-start">
+            <!-- Row -->
+            <div class="row align-items-center">
+
+                <div class="col-md-10">
+                    <h1 class="m-0">
+                        <i class="bi bi-gear-fill"></i> Dashboard <small class="text-muted h4">Manage Your
+                            Site</small>
+                    </h1>
+                </div>
+
+                <!-- dropdown button -->
+                <div class="col-md-2 p-0">
+                    <div class="dropdown m-sm-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropMenu"
+                            data-bs-toggle="dropdown">
+                            Add Contant
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addUser">
+                                    Add User
+                                </a>
+                            </li>
+                            <li>
+                                <a type="button" th:class=" 'dropdown-item '+ ${EditShoes != null ? 'd-none': '' }"
+                                    data-bs-toggle="modal" data-bs-target="#addShoes">
+                                    Add Shoes
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- dropdown button End-->
+
+            </div>
+            <!-- Row End-->
+        </div>
+        <!-- header container End -->
+    </header>
+
+
+
+</html>
